@@ -1,0 +1,20 @@
+{
+  "name": "shop-flipmart-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "cors": "...",
+    "express": "file:...",
+    "express-session": "^1.18.2",
+    "sqlite3": "file:..."
+  },
+  "devDependencies": {
+    "nodemon": "..."
+  }
+}
