@@ -28,9 +28,7 @@ app.register_blueprint(main)
 # Tạo cơ sở dữ liệu và thêm dữ liệu mẫu (chỉ chạy lần đầu)
 with app.app_context():
     # db.drop_all() # Xóa cơ sở dữ liệu
-
     db.create_all()
-    print("Đã tạo lại tất cả các bảng.")
 
     if not Product.query.first():
         print("Đang thêm 20 sản phẩm mẫu...")
@@ -75,9 +73,10 @@ with app.app_context():
             description = product_descriptions[i]
             price = random.randint(5, 200) * 10000 # Giá vẫn ngẫu nhiên
 
-            image_url_for_db = url_for('static', filename=f'images/{image_files[i]}')
-            new_product = Product(name=f'{name}', description=description, price=float(price), image_url=image_url_for_db) # Bỏ " {i+1}" ở tên nếu bạn không muốn số thứ tự
-
+            # SỬ DỤNG CHUỖI ĐƯỜNG DẪN TƯƠNG ĐỐI
+            image_url_for_db = f'/static/images/{image_files[i]}' 
+            new_product = Product(name=f'{name}', description=description, price=float(price), image_url=image_url_for_db)
+            
             db.session.add(new_product)
         db.session.commit()
         print(f"Đã thêm {num_products_to_create} sản phẩm mẫu theo thứ tự.")
