@@ -19,7 +19,6 @@ Dự án này là một trang web thương mại điện tử được xây dự
 
 ### 📸 Hình ảnh xem trước
 
-![home](/preview/home.png)
 | Đăng nhập | Đăng ký |
 | :---: | :---: |
 | ![login](/preview/login.png) | ![register](/preview/register.png) |
