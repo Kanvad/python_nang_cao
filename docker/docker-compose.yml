@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # Dịch vụ cho Ứng dụng Flask (Web)
+  web:
+    # Sử dụng Dockerfile trong thư mục hiện tại
+    build: .
+    container_name: flask_sqlite_app
+    ports:
+      - "5000:5000"
+    # Gắn volume để giữ lại mã nguồn cục bộ và kích hoạt hot-reload (development)
+    volumes:
+      - .:/usr/src/app
+      # Gắn volume cho thư mục "instance" để file SQLite được lưu trữ bền vững.
+      - sqlite_data:/usr/src/app/instance
+
+    # Khai báo biến môi trường riêng biệt
+    environment:
+      # Bật chế độ phát triển. Nếu app.py của bạn dùng `app.run(debug=True)`,
+      # FLASK_ENV: development sẽ tự động kích hoạt chế độ gỡ lỗi (debug mode).
+      FLASK_ENV: development
+
+    # Khởi động lại nếu container bị lỗi
+    restart: always
+
+
+# Định nghĩa các Volumes (vùng lưu trữ bền vững)
+volumes:
+  # Volume này sẽ được Docker quản lý để lưu trữ file site.db của bạn
+  sqlite_data:

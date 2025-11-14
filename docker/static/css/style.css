@@ -1,0 +1,217 @@
+/* General Body and Typography */
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa; /* Light background */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #343a40;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* Navbar Enhancements */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,.05);
+    background-color: #ffffff !important; /* White background */
+    padding: 0.8rem 1rem;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #007bff !important; /* Primary blue for brand */
+}
+
+.navbar-nav .nav-link {
+    color: #555 !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff !important; /* Hover effect */
+}
+
+/* Jumbotron (Hero Section) */
+.jumbotron {
+    background-color: #e9ecef;
+    border-radius: .5rem;
+    padding: 4rem 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #343a40;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
+.jumbotron h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.jumbotron p.lead {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.jumbotron .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 0.3rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.jumbotron .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+    transform: translateY(-2px);
+}
+
+/* Card Styling (Products) */
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Ensure cards in a row have equal height */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,.12);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 430px; /* Slightly increased height */
+    object-fit: cover;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #343a40;
+}
+
+.card-text {
+    color: #6c757d;
+    flex-grow: 1; /* Allow description to take up available space */
+}
+
+.card-text strong {
+    font-size: 1.15rem;
+    color: #28a745; /* Green for price */
+}
+
+.card .btn {
+    margin-top: 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.card .btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.card .btn-info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+}
+
+.card .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.card .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+
+/* Form Styling */
+.form-control {
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+    padding: 0.75rem 1rem;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary, .btn-success, .btn-danger {
+    border-radius: 0.25rem;
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover, .btn-success:hover, .btn-danger:hover {
+    transform: translateY(-2px);
+}
+
+/* Alert Messages */
+.alert {
+    border-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Table styling for Cart */
+.table {
+    background-color: #fff;
+    border-radius: 0.75rem;
+    overflow: hidden; /* For rounded corners */
+    box-shadow: 0 4px 15px rgba(0,0,0,.05);
+}
+
+.table thead {
+    background-color: #f2f2f2;
+}
+
+.table th {
+    padding: 1rem;
+    font-weight: 600;
+    color: #343a40;
+}
+
+.table td {
+    vertical-align: middle;
+    padding: 1rem;
+}
+
+.table img {
+    border-radius: 0.25rem;
+    margin-right: 10px;
+}
+
+.list-group-item.active {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.list-group-item {
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(0,0,0,.125);
+}
