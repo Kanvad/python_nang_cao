@@ -1,4 +1,6 @@
-from flask import render_template, redirect, url_for, flash, request, Blueprint
+from flask import render_template, redirect, url_for, flash, request, Blueprint, jsonify
+import requests
+import json
 from flask_login import login_user, logout_user, login_required, current_user
 from models import User, Product, CartItem, Order, OrderItem
 from database import db
@@ -172,3 +174,57 @@ def checkout():
         return redirect(url_for('main.index')) # Hoặc trang xác nhận đơn hàng
 
     return render_template('checkout.html', cart_items=cart_items, total_amount=total_amount)
+
+# Chatbot (llama3.2:latest)
+def call_ollama(prompt):
+    url = "http://localhost:11434/api/generate"
+    payload = {"model": "llama3.2:latest", "prompt": prompt}
+
+    try:
+        # Stream the response from Ollama
+        res = requests.post(url, json=payload, stream=True)
+        full_reply = ""
+
+        for line in res.iter_lines():
+            if line:
+                event = json.loads(line)
+                # Get response segment
+                text = event.get("response", "")
+                full_reply += text
+
+        return full_reply.strip()
+    except Exception as e:
+        print("ERROR:", e)
+        return "Sorry, I encountered an error retrieving the data."
+
+# Chat endpoint
+@main.route("/chat", methods=["POST"])
+def chat():
+    data = request.get_json()
+    user_msg = data.get("message", "")
+
+    # Get product data from the database
+    products = Product.query.with_entities(Product.name, Product.price, Product.description).all()
+    # print(products)
+    
+    if products:
+        product_text = "\n".join([f"- {n} ({p} VND): {d}" for n, p, d in products])
+    else:
+        product_text = "There are currently no products available."
+
+    # Prompt for the chatbot
+    prompt = f"""
+You are a shopping assistant chatbot.
+Rules:
+- Only answer in Vietnamese.
+- Do not make up products.
+- Keep answers short, friendly and no markdown.
+
+Available products:
+{product_text}
+
+User: "{user_msg}"
+"""
+
+    bot_reply = call_ollama(prompt)
+    return jsonify({"reply": bot_reply})

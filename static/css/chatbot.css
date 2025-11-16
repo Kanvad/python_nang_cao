@@ -1,0 +1,125 @@
+/* ================== */
+/* Bubble button       */
+/* ================== */
+.chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #005eff;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 2000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.chatbot-button:hover {
+    transform: scale(1.1);
+}
+
+/* ================== */
+/* Chatbox container  */
+/* ================== */
+.chatbot-box {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 380px;
+    height: 450px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    display: none;
+    flex-direction: column;
+    z-index: 2000;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+.chatbot-header {
+    padding: 12px;
+    background: #005eff;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px 12px 0 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Messages container */
+.chatbot-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+/* Typing indicator */
+#chatbot-typing {
+    font-style: italic;
+    color: gray;
+    margin: 6px 10px;
+}
+
+/* Tin nhắn */
+.bot-msg {
+    background: #e8f0fe;
+    padding: 8px 12px;
+    margin: 6px 0;
+    border-radius: 12px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.user-msg {
+    background: #d1ffd6;
+    padding: 8px 12px;
+    margin: 6px 0;
+    border-radius: 12px;
+    text-align: right;
+    max-width: 80%;
+    margin-left: auto;
+    word-wrap: break-word;
+}
+
+/* Input container */
+#chatbot-input-container {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 6px;
+    background: #f9f9f9;
+    border-radius: 0 0 12px 12px;
+}
+
+#chatbot-input-container input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+}
+
+#chatbot-input-container button {
+    width: 70px;
+    margin-left: 6px;
+    border: none;
+    border-radius: 6px;
+    background: #005eff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+#chatbot-input-container button:hover {
+    background: #0041c4;
+}
