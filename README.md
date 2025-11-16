@@ -15,6 +15,7 @@ Dự án này là một trang web thương mại điện tử được xây dự
 -   **Chi tiết sản phẩm:** Xem thông tin chi tiết cho từng sản phẩm.
 -   **Giỏ hàng:** Thêm sản phẩm vào giỏ, cập nhật số lượng, và xóa mặt hàng.
 -   **Thanh toán:** Một quy trình thanh toán được mô phỏng để "đặt hàng".
+-   **Chatbot AI:** Trợ lý mua sắm thông minh sử dụng Ollama (llama3.2:latest) để tư vấn sản phẩm bằng tiếng Việt.
 -   **Thiết kế đáp ứng:** Giao diện cơ bản đáp ứng sử dụng Bootstrap 5.
 
 ### 📸 Hình ảnh xem trước
@@ -31,6 +32,7 @@ Dự án này là một trang web thương mại điện tử được xây dự
 -   **Backend:** Python 3, Flask
 -   **Cơ sở dữ liệu:** SQLite (quản lý bởi Flask-SQLAlchemy)
 -   **Xác thực người dùng:** Flask-Login, Werkzeug (để mã hóa mật khẩu)
+-   **AI Chatbot:** Ollama (llama3.2:latest model)
 -   **Frontend:** HTML5, CSS3, Bootstrap 5
 -   **Templating:** Jinja2
 
@@ -42,6 +44,7 @@ Dự án này là một trang web thương mại điện tử được xây dự
 
 -   [Python 3.8+](https://www.python.org/downloads/)
 -   [Pip](https://pip.pypa.io/en/stable/installation/) (thường đi kèm với Python)
+-   [Ollama](https://ollama.ai/) (cho tính năng chatbot AI)
 
 ### Cài đặt
 
@@ -68,7 +71,18 @@ Dự án này là một trang web thương mại điện tử được xây dự
     pip install -r requirements.txt
     ```
 
-4.  **Chạy ứng dụng:**
+4.  **Cài đặt và chạy Ollama (cho chatbot):**
+    -   Tải và cài đặt Ollama từ [ollama.ai](https://ollama.ai/)
+    -   Tải model llama3.2:
+        ```sh
+        ollama pull llama3.2:latest
+        ```
+    -   Chạy Ollama server (mặc định tại port 11434):
+        ```sh
+        ollama serve
+        ```
+
+5.  **Chạy ứng dụng:**
     ```sh
     python app.py
     ```
@@ -98,6 +112,11 @@ Nếu bạn đã cài đặt Docker, bạn có thể dễ dàng chạy dự án 
 ├── requirements.txt    # Danh sách các thư viện Python cần thiết
 ├── .gitignore          # Các file và thư mục được Git bỏ qua
 ├── static/             # Chứa các file tĩnh (CSS, JS, hình ảnh)
+│   ├── css/
+│   │   ├── style.css
+│   │   └── chatbot.css    # CSS cho chatbot
+│   └── js/
+│       └── chatbot.js     # Logic chatbot
 ├── templates/          # Chứa các template HTML (giao diện)
 └── instance/           # Chứa file cơ sở dữ liệu SQLite (site.db)
 ```
